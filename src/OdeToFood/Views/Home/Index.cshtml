@@ -1,0 +1,59 @@
+﻿@*@model IEnumerable<OdeToFood.Models.Restaurant>*@
+@*cia yra directive tai duos nuspejamuma kai rasysim @Model.*@
+@*galima issiversiti me model ..... bet nebus pagalbos*@
+
+
+@*@model HomePageViewModel*@
+
+@model IEnumerable<Restaurant>
+
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h1>Sveiki!</h1>
+
+@foreach (var restaurant in Model)
+{
+    @Html.Partial("_Summary", restaurant)
+}
+
+
+@*<table>
+    foreach (var restaurant in Model.Restaurants)
+    {
+        <tr>
+            <td>restaurant.Name</td>
+            <td>
+                *asp-route-id id yra parametro vardas tam action jis kintamas*
+                <a asp-action="Details" asp-route-id="restaurant.Id">Details</a>
+                <a asp-action="Edit" asp-route-id="restaurant.Id">Edit</a>
+
+
+                *Html.ActionLink("View", "Details", new { Id = restaurant.Id })*
+                *html helper budas(Textas display, "Action anme",
+                    ir budas kaipprideti id), cia viskas eisk kaip ur
+                    plius sugeneruos <a> su duotu tekstu*
+
+
+               *Hard coded jei paskeisi veliau kazka reiks cia grizti ir keisti
+                    <a href="/home/details/restaurant.Id">Details</a>*
+            </td>
+        </tr>
+    }
+</table>*@
+
+<div>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Create">Create</a>
+</div>
+@*Tag helper vs Html helper*@
+
+@*@Html.ActionLink("Create", nameof(HomeController.Create))*@
+
+
+@*si dalis ei i renderSection dali _Layout.cshtml faile*@
+
+@*@section footer{
+    <h2>@Model.CurrentMessage</h2>
+}*@
